@@ -8,7 +8,7 @@ def render_main():
 
 @app.route("/response")
 def render_response():
-    color = request.args['color'] 
+    color = request.args['username'] 
     #The request object stores information about the request sent to the server.
     #args is an ImmutableMultiDict (like a dictionary but can have mutliple values for the same key and can't be changed)
     #The information in args is visible in the url for the page being requested. ex. .../response?color=blue
@@ -16,9 +16,14 @@ def render_response():
         reply1 = "That's my favorite color, too!"
     else:
         reply1 = "My favorite color is pink."
-    n = int(request.args['multNum']) #values in request.args are strings by default
-    reply2 = "2 x " + str(n) + " = " + str((2*n))
-    return render_template('response.html', response1 = reply1, response2 = reply2)
+    color1 = request.args['password'] 
+    #The request object stores information about the request sent to the server.
+    #args is an ImmutableMultiDict (like a dictionary but can have mutliple values for the same key and can't be changed)
+    #The information in args is visible in the url for the page being requested. ex. .../response?color=blue
+    if color1 == 'pink':
+        reply2 = "That's my favorite color, too!"
+    else:
+        reply2 = "My favorite color is pink."
     
 if __name__=="__main__":
     app.run(debug=False)
