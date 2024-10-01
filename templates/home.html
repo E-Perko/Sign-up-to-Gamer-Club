@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sign In</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/static/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="/static/script.js"></script>
+	<title>Sign In</title>
   </head>
   <body>
-
+	<h1>Gamer Club</h1>
+	<h2>Sign Up</h2>	
     <form action='/response'>
       <label for="username">Username</label>
       <br>
@@ -14,7 +20,24 @@
       <br>
       <input type="text" name="password" id="password" required>
       <br><br>
-	  <input type="submit">
+	  <p>How much do you consider yourself a gamer?</p>
+	  <input type="radio" id="no" name="gamer_scale" value="no" required>
+  		<label for="no">I'm not a gamer.</label><br>
+  		<input type="radio" id="somewhat" name="gamer_scale" value="somewhat">
+  		<label for="somewhat">I'm somewhat of a gamer.</label><br>
+  		<input type="radio" id="probably" name="gamer_scale" value="probably">
+  		<label for="javascript">I'm probably a gamer.</label><br>
+		<input type="radio" id="definitely" name="gamer_scale" value="definitely">
+  		<label for="javascript">I'm definitely a gamer.</label><br>
+		<br><br>
+		
+		<div class="slidecontainer">
+			<p>Phone number</p>
+			<input type="range" min="2000000000" max="9999999999" value="8053353637" id="myRange">
+			<p>Value: <span id="phone"></span></p>
+		</div>
+
+		<input type="submit">
     </form>
 
   </body>

@@ -8,22 +8,14 @@ def render_main():
 
 @app.route("/response")
 def render_response():
-    color = request.args['username'] 
-    #The request object stores information about the request sent to the server.
-    #args is an ImmutableMultiDict (like a dictionary but can have mutliple values for the same key and can't be changed)
-    #The information in args is visible in the url for the page being requested. ex. .../response?color=blue
-    if color == 'pink':
-        reply1 = "That's my favorite color, too!"
+    user = request.args['username'] 
+    reply1 = "Hello, " + user + "."
+    gamer = request.args['gamer_scale'] 
+    if gamer == 'no':
+        reply2 = "Unfortunately, you have not met the minimum requirements to join Gamer Club©."
     else:
-        reply1 = "My favorite color is pink."
-    color1 = request.args['password'] 
-    #The request object stores information about the request sent to the server.
-    #args is an ImmutableMultiDict (like a dictionary but can have mutliple values for the same key and can't be changed)
-    #The information in args is visible in the url for the page being requested. ex. .../response?color=blue
-    if color1 == 'pink':
-        reply2 = "That's my favorite color, too!"
-    else:
-        reply2 = "My favorite color is pink."
+        reply2 = "You are now a part of Gamer Club©"
+    return render_template('response.html', response1 = reply1, response2 = reply2)
     
 if __name__=="__main__":
     app.run(debug=False)
